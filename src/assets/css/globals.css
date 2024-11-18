@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  html {
+    @apply text-grey-800;
+  }
+  h1 {
+    @apply text-[3.625rem] font-normal leading-[4rem];
+  }
+  h2 {
+    @apply text-[2.375rem] font-bold leading-[2.75rem];
+  }
+  h3 {
+    @apply text-[1.625rem] font-bold leading-[2rem];
+  }
+  h4 {
+    @apply text-[1.25rem] font-bold leading-[1.75rem];
+  }
+  h5 {
+    @apply text-[1.0625rem] font-bold leading-[1.375];
+  }
+  h6 {
+    @apply text-[1rem] leading-[1.25];
+  }
+  span {
+    @apply text-body-md;
+  }
+  a {
+    @apply cursor-pointer select-none text-[13px];
+  }
+}
+
+@layer components {
+  .input {
+    @apply m-0 block h-[48px] w-full rounded-lg border border-solid border-grey-300 bg-white bg-clip-padding px-3 py-[13px] font-normal text-grey-900 transition ease-in-out focus:border-grey-800 focus:bg-white focus:text-grey-700 focus:outline-none;
+  }
+  .label {
+    @apply flex w-full text-[15px] font-bold text-grey-800;
+  }
+  .input.input-disabled {
+    @apply cursor-not-allowed select-none bg-grey-100 text-grey-400;
+  }
+  .label.label-disabled {
+    @apply cursor-not-allowed select-none text-grey-300;
+  }
+  .btn-text {
+    @apply text-[13.4px] font-bold;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  @layer responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+      transition: scrollbar-color 0.3s;
+
+      &:hover {
+        scrollbar-color: #989898 transparent;
+      }
+
+      &:not(:hover)::-webkit-scrollbar-thumb {
+        background: inherit;
+      }
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #d7d7d7;
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        transition: background 0.3s;
+        background: #989898;
+      }
+    }
+  }
+}
