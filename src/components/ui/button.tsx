@@ -4,8 +4,9 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
 
 import Icon from "@/components/common/Icon";
-import Spinner from "@/components/common/Spinner";
 import { cn } from "@/utils";
+
+import Spinner from "../common/spinner";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
@@ -24,7 +25,7 @@ const buttonVariants = cva(
           "text-primary-400 font-bold disabled:text-grey-600 hover:text-primary-400",
         link: `font-bold underline-offset-4 underline hover:no-underline
          text-primary-100 hover:shadow hover:shadow-primary-400`,
-        shimmer: `animate-shimmer bg-[linear-gradient(110deg,#FF7854,45%,#F6F5F2,48%,#FF7854)] 
+        shimmer: `animate-shimmer bg-[linear-gradient(110deg,#56328C,45%,#F6F5F2,48%,#56328C)] 
          bg-[length:200%_100%] text-white`,
       },
       size: {
@@ -84,6 +85,7 @@ function Button({
 }: IButtonProps) {
   return (
     <ButtonContent
+      disabled={withLoader && isLoading}
       {...rest}
       className={cn("flex items-center gap-1", className)}
     >
