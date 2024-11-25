@@ -1,4 +1,4 @@
-import { FlexColumn } from "@/components/common/Layout";
+import { FlexColumn } from "@/components/common/layout";
 
 export default function PageNotFound() {
   return (

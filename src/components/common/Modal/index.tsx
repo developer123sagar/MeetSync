@@ -2,8 +2,9 @@ import { MouseEventHandler, ReactNode, useRef } from "react";
 
 import { CSSTransition } from "react-transition-group";
 
-import { FlexRow } from "@/components/common/Layout";
 import { cn } from "@/utils";
+
+import { FlexRow } from "../layout";
 
 interface IModalProps {
   title: string;

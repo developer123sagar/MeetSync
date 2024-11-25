@@ -8,9 +8,10 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 
-import Icon from "@/components/common/Icon";
-import { FlexColumn } from "@/components/common/Layout";
+import Icon from "@/components/common/icon";
 import { cn } from "@/utils";
+
+import { FlexColumn } from "../common/layout";
 
 interface ToolTipProps {
   name: string;
