@@ -2,7 +2,7 @@ import Auth from "@/components/auth";
 
 export default function Home() {
   return (
-    <div className="container space-y-4 p-10">
+    <div className="space-y-4 lg:container lg:p-10">
       <Auth />
     </div>
   );

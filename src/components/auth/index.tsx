@@ -28,13 +28,19 @@ export default function Auth() {
         <span className="relative top-2.5 bg-white font-medium">Or</span>
       </div>
 
-      <FlexColumn gap={2} className="mt-6">
-        <Label>Email address</Label>
-        <Input
-          type="email"
-          placeholder="Enter Email Address"
-          className="h-12"
-        />
+      <FlexColumn gap={2.5} className="mt-6">
+        <FlexColumn gap={1}>
+          <Label>Email address</Label>
+          <Input type="email" placeholder="Enter Email Address" />
+        </FlexColumn>
+        <FlexColumn gap={1}>
+          <Label>Password</Label>
+          <Input
+            type="password"
+            placeholder="Enter Password"
+            className="w-full"
+          />
+        </FlexColumn>
       </FlexColumn>
 
       <Button variant="shimmer" className="my-16 h-12 text-base">
