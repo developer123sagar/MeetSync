@@ -1,13 +1,29 @@
+"use client";
+
 import Image from "next/image";
 
+import { useForm } from "react-hook-form";
+
 import GoogleLogo from "@/assets/images/google-logo.svg";
+import FormControl from "@/components/common/FormUI/FormControl";
 import { FlexColumn, FlexRow } from "@/components/common/layout";
 import { Button } from "@/components/ui/button";
-
-import Input from "../common/FormUI/Input";
-import Label from "../common/Label";
+import { authFormFields } from "@/constants/auth";
+import { getInputElement } from "@/utils/get-input-element";
 
 export default function Auth() {
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm({
+    mode: "all",
+  });
+
+  const onSubmit = (values: Record<string, any>) => {
+    console.log(values);
+  };
+
   return (
     <FlexColumn gap={2} className="h-[90vh] justify-center">
       <Button
@@ -28,24 +44,22 @@ export default function Auth() {
         <span className="relative top-2.5 bg-white font-medium">Or</span>
       </div>
 
-      <FlexColumn gap={2.5} className="mt-6">
-        <FlexColumn gap={1}>
-          <Label>Email address</Label>
-          <Input type="email" placeholder="Enter Email Address" />
-        </FlexColumn>
-        <FlexColumn gap={1}>
-          <Label>Password</Label>
-          <Input
-            type="password"
-            placeholder="Enter Password"
-            className="w-full"
-          />
-        </FlexColumn>
-      </FlexColumn>
+      {/* form section */}
+      <FormControl>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <FlexColumn gap={2.5} className="mt-6">
+            {authFormFields.map(field => (
+              <FlexColumn key={field.id}>
+                {getInputElement({ field, register, errors })}
+              </FlexColumn>
+            ))}
+          </FlexColumn>
 
-      <Button variant="shimmer" className="my-16 h-12 text-base">
-        Log in
-      </Button>
+          <Button variant="shimmer" className="my-16 h-12 w-full text-base">
+            Log in
+          </Button>
+        </form>
+      </FormControl>
 
       <FlexRow className="justify-between text-primary-50">
         <strong className="cursor-pointer">Terms of Use</strong>
